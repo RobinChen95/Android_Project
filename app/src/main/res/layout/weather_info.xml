@@ -112,7 +112,7 @@
                 android:text="湿度:57%"
                 android:textColor="@android:color/white"
                 android:textSize="15.0sp" />
-            
+
             <LinearLayout
                 android:id="@+id/pm2_5_content"
                 android:layout_width="wrap_content"
