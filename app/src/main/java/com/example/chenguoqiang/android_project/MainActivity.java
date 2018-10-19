@@ -49,6 +49,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             eventType = xmlPullParser.next();
                             Log.d("myWeather", "updatetime:" + xmlPullParser.getText());
                         }
+                        else if (xmlPullParser.getName().equals("shidu")){
+                            eventType=xmlPullParser.next();
+                            Log.d("myWeather","shidu"+xmlPullParser.getText());
+                        }
+                        else if (xmlPullParser.getName().equals("wendu")){
+                            eventType=xmlPullParser.next();
+                            Log.d("myWeather","wendu"+xmlPullParser.getText());
+                        }
+                        else if (xmlPullParser.getName().equals("pm25")){
+                            eventType=xmlPullParser.next();
+                            Log.d("myWeather","pm25"+xmlPullParser.getText());
+                        }
+                        else if (xmlPullParser.getName().equals("quality")){
+                            eventType=xmlPullParser.next();
+                            Log.d("myWeather","quality"+xmlPullParser.getText());
+                        }
                         break;
                     case XmlPullParser.END_TAG:
                             break;
