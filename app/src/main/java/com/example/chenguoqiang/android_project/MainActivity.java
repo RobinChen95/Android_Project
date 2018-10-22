@@ -242,7 +242,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
         mcitySelect = (ImageView) findViewById(R.id.title_city_manager);
-        mUpdateBtn.setOnClickListener(this);
+        mcitySelect.setOnClickListener(this);
 
         initView();
     }
