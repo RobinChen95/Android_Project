@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--Android9之后屏蔽HTTP链接，需要显示允许-->
     <application
+        android:name="com.pku.edu.ChenGuoqiang.app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
