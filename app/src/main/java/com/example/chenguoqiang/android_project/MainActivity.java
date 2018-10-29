@@ -82,6 +82,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     void updateTodayWeather(TodayWeather todayWeather) {
+        int pmIntdata = Integer.parseInt(todayWeather.getPm25());
         city_name_Tv.setText(todayWeather.getCity() + "天气");
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime() + "发布");
@@ -92,6 +93,35 @@ public class MainActivity extends Activity implements View.OnClickListener {
         temperatureTv.setText(todayWeather.getHigh() + "~" + todayWeather.getLow());
         climateTv.setText(todayWeather.getType());
         windTv.setText("风力:" + todayWeather.getFengli());
+        //使用setImageResource方法更新Pm2.5图片与天气图片
+        if (pmIntdata<=50)pmImg.setImageResource(R.drawable.biz_plugin_weather_0_50);
+        else if (pmIntdata<=100)pmImg.setImageResource(R.drawable.biz_plugin_weather_51_100);
+        else if (pmIntdata<=150)pmImg.setImageResource(R.drawable.biz_plugin_weather_101_150);
+        else if (pmIntdata<=200)pmImg.setImageResource(R.drawable.biz_plugin_weather_151_200);
+        else if (pmIntdata<=300)pmImg.setImageResource(R.drawable.biz_plugin_weather_201_300);
+        else pmImg.setImageResource(R.drawable.biz_plugin_weather_greater_300);
+        //更新天气图片
+        if (todayWeather.getType().equals("晴"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_qing);
+        if (todayWeather.getType().equals("暴雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_baoxue);
+        if (todayWeather.getType().equals("暴雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_baoyu);
+        if (todayWeather.getType().equals("大暴雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_dabaoyu);
+        if (todayWeather.getType().equals("大雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_daxue);
+        if (todayWeather.getType().equals("大雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_dayu);
+        if (todayWeather.getType().equals("多云"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_duoyun);
+        if (todayWeather.getType().equals("雷阵雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_leizhenyu);
+        if (todayWeather.getType().equals("雷阵雨冰雹"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_leizhenyubingbao);
+        if (todayWeather.getType().equals("沙尘暴"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_shachenbao);
+        if (todayWeather.getType().equals("特大暴雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_tedabaoyu);
+        if (todayWeather.getType().equals("雾"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_wu);
+        if (todayWeather.getType().equals("小雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_xiaoxue);
+        if (todayWeather.getType().equals("小雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_xiaoyu);
+        if (todayWeather.getType().equals("阴"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_yin);
+        if (todayWeather.getType().equals("雨夹雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_yujiaxue);
+        if (todayWeather.getType().equals("阵雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_zhenxue);
+        if (todayWeather.getType().equals("阵雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_zhenyu);
+        if (todayWeather.getType().equals("中雪"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_zhongxue);
+        if (todayWeather.getType().equals("中雨"))weatherImg.setImageResource(R.drawable.biz_plugin_weather_zhongyu);
+
         Toast.makeText(MainActivity.this, "更新成功!", Toast.LENGTH_SHORT).show();
     }
 
@@ -260,7 +290,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             String cityCode = sharedPreferences.getString("main_city_code", "101010100");
             Log.d("myWeather", cityCode);
 
-            
+
             if (NetUtil.getNetWorkState(this) != NetUtil.NETWORK_NONE) {
                 Log.d("myWeather", "网络OK");
                 queryWeatherCode(cityCode);
