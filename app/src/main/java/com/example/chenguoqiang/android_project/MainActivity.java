@@ -260,6 +260,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             String cityCode = sharedPreferences.getString("main_city_code", "101010100");
             Log.d("myWeather", cityCode);
 
+            
             if (NetUtil.getNetWorkState(this) != NetUtil.NETWORK_NONE) {
                 Log.d("myWeather", "网络OK");
                 queryWeatherCode(cityCode);
