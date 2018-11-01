@@ -1,18 +1,18 @@
 package com.pku.edu.ChenGuoqiang.bean;
 
 public class TodayWeather {
-    private String city;
-    private String updatetime;
-    private String wendu;
-    private String shidu;
-    private String pm25;
-    private String quality;
-    private String fengxiang;
-    private String fengli;
-    private String date;
-    private String high;
-    private String low;
-    private String type;
+    private String city=null;
+    private String updatetime=null;
+    private String wendu=null;
+    private String shidu=null;
+    private String pm25="-1";
+    private String quality=null;
+    private String fengxiang=null;
+    private String fengli=null;
+    private String date=null;
+    private String high=null;
+    private String low=null;
+    private String type=null;
 
     @Override
     public String toString() {
