@@ -3,9 +3,9 @@ package com.pku.edu.ChenGuoqiang.app;
 import android.app.Application;
 import android.os.Environment;
 import android.util.Log;
-
 import com.pku.edu.ChenGuoqiang.bean.City;
 import com.pku.edu.ChenGuoqiang.db.CityDB;
+
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,12 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyApplication extends Application {
+
+    public static String cityname_global;
+
     private static final String TAG = "Myapp";
 
     private static MyApplication mApplication;
     private CityDB mCityDB;
 
     private List<City> mCityList;
+
 
     private void initCityList(){
         mCityList = new ArrayList<City>();
@@ -47,6 +51,7 @@ public class MyApplication extends Application {
     }
 
     private CityDB openCityDB() {
+
         String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath()
                 + File.separator + getPackageName()

@@ -7,10 +7,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.pku.edu.ChenGuoqiang.app.MyApplication;
 import com.pku.edu.ChenGuoqiang.bean.City;
@@ -26,7 +25,8 @@ public class SelectCity extends Activity implements View.OnClickListener {
     private ArrayAdapter<String> madpter;
     private ArrayList<String> city_name;
     private String citycode;
-    private String cityname;
+    private TextView select_city_Tv;
+
 
 
     @Override
@@ -34,10 +34,12 @@ public class SelectCity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.select_city);
-
+        select_city_Tv = findViewById(R.id.city_name);
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
         initViews();
+        //设置标题栏的城市
+        select_city_Tv.setText("当前城市："+MyApplication.cityname_global);
     }
 
     private void initViews(){
@@ -53,7 +55,6 @@ public class SelectCity extends Activity implements View.OnClickListener {
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l){
-                cityname=cityList.get(position).getCity();
                 citycode=cityList.get(position).getNumber();
                 Intent i = new Intent();
                 i.putExtra("citycode",citycode);
@@ -61,15 +62,13 @@ public class SelectCity extends Activity implements View.OnClickListener {
                 finish();
             }
         });
+
     }
 
     @Override
     public void onClick(View v){
         switch (v.getId()){
             case R.id.title_back:
-                Intent i = new Intent();
-                i.putExtra("citycode","101160101");
-                setResult(RESULT_OK,i);
                 finish();
                 break;
                 default:

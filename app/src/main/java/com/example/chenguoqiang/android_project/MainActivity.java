@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.pku.edu.ChenGuoqiang.bean.TodayWeather;
 import com.pku.edu.ChenGuoqiang.util.NetUtil;
+import com.pku.edu.ChenGuoqiang.app.MyApplication;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -34,6 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final int UPDATE_TODAY_WEATHER = 1;
 
     private ImageView mUpdateBtn;
+
 
     private ImageView mcitySelect;
 
@@ -86,6 +89,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     void updateTodayWeather(TodayWeather todayWeather) {
         int pmIntdata = Integer.parseInt(todayWeather.getPm25());
         city_name_Tv.setText(todayWeather.getCity() + "天气");
+        MyApplication.cityname_global = todayWeather.getCity();
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime() + "发布");
         humidityTv.setText("湿度:" + todayWeather.getShidu());
