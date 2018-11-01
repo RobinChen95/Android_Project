@@ -55,6 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     };
 
+    //初始化界面
     void initView() {
         city_name_Tv = (TextView) findViewById(R.id.title_city_name);
         cityTv = (TextView) findViewById(R.id.city);
@@ -81,6 +82,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         windTv.setText("N/A");
     }
 
+    //根据得到的数据更新界面
     void updateTodayWeather(TodayWeather todayWeather) {
         int pmIntdata = Integer.parseInt(todayWeather.getPm25());
         city_name_Tv.setText(todayWeather.getCity() + "天气");
@@ -125,6 +127,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Toast.makeText(MainActivity.this, "更新成功!", Toast.LENGTH_SHORT).show();
     }
 
+    //解析HTML
     private TodayWeather parseXML(String xmldata) {
         TodayWeather todayWeather = null;
         int fengxiangCount = 0;
@@ -213,6 +216,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return todayWeather;
     }
 
+    //根据citycode查询网页并将返回的HTML调用自定义的解释器解析为todayWeather对象，并通过消息机制发送给主线程
     private void queryWeatherCode(String cityCode) {
         final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey=" + cityCode;
         Log.d("myWeather", address);
@@ -227,20 +231,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     con.setRequestMethod("GET");
                     con.setConnectTimeout(8000);
                     con.setReadTimeout(8000);
+                    //输入流
                     InputStream in = con.getInputStream();
+                    //BufferedReader作用是包装字符流，现将字符读入缓存，再读入内存以提高效率
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    //StringBuilder可以使用append方法在字符串末尾处添加字符
                     StringBuilder response = new StringBuilder();
                     String str;
                     while ((str = reader.readLine()) != null) {
                         response.append(str);
-                        Log.d("myWeather", str);
+                        Log.d("responseAppended", str);
                     }
                     String responseStr = response.toString();
                     Log.d("myWeather", responseStr);
                     parseXML(responseStr);
 
                     todayWeather = parseXML(responseStr);
-                    if (todayWeather != null) {Log.d("myweather", todayWeather.toString());
+                    if (todayWeather != null) {Log.d("todayWeatherMessage", todayWeather.toString());
                         Message msg =new Message();
                         msg.what = UPDATE_TODAY_WEATHER;
                         msg.obj=todayWeather;
