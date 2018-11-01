@@ -6,6 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dip"
+        android:id="@+id/title_top"
         android:background="#ffcd2626">
         <TextView
             android:id="@+id/city_name"
@@ -31,7 +32,25 @@
             android:layout_toRightOf="@+id/title_back"
             android:background="#A71717"
             android:gravity="center"/>
-
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_top">
+
+        <ListView
+            android:id="@+id/city_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+
+        </ListView>
+    </RelativeLayout>
+
+
+
+
 
 </RelativeLayout>
