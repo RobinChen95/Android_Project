@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/title"
@@ -61,13 +62,23 @@
             android:src="@drawable/base_action_bar_action_city" />
     </RelativeLayout>
 
+    <!-- 实现下拉刷新 -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        app:layout_behavior="@string/app_bar_scrolling_refresh"
+        >
+
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/title"
         android:background="@drawable/biz_plugin_weather_shenzhen_bg"
         android:orientation="vertical" >
+
+
         <!-- 今日天气信息 -->
         <RelativeLayout
             android:id="@+id/weather_today"
@@ -234,4 +245,6 @@
 
     </LinearLayout>
 
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <!-- 实现下拉刷新 -->
 </RelativeLayout>

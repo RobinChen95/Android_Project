@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,6 +45,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             temperatureTv, climateTv, windTv, city_name_Tv;
 
     private ImageView weatherImg, pmImg;
+
+    private SwipeRefreshLayout Refresh;
+
+    private String updatedCityCode;
+
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
@@ -83,6 +89,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
         temperatureTv.setText("N/A");
         climateTv.setText("N/A");
         windTv.setText("N/A");
+    }
+
+    @SuppressLint("ResourceAsColor")
+    void PulltoRefresh(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    //Thread.sleep(2000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                Refresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
+                Refresh.setColorSchemeColors(R.color.colorPrimaryDark);
+                Refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        queryWeatherCode(updatedCityCode);
+                        Refresh.setRefreshing(false);
+                    }
+                });
+            }
+        }).start();
     }
 
     //根据得到的数据更新界面
@@ -286,6 +315,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mcitySelect.setOnClickListener(this);
 
         initView();
+        PulltoRefresh();
     }
 
     @Override
@@ -297,14 +327,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
         if (view.getId() == R.id.title_update_btn) {
-            SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
-            String cityCode = sharedPreferences.getString("main_city_code", "101010100");
-            Log.d("myWeather", cityCode);
-
 
             if (NetUtil.getNetWorkState(this) != NetUtil.NETWORK_NONE) {
                 Log.d("myWeather", "网络OK");
-                queryWeatherCode(cityCode);
+                if (updatedCityCode!=null)
+                queryWeatherCode(updatedCityCode);
+                else queryWeatherCode("101010100");
             }
         }
     }
@@ -312,11 +340,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==1&&resultCode==RESULT_OK){
-            String newCityCode = data.getStringExtra("citycode");
-            Log.d("myWeather","选择的城市代码为"+newCityCode);
+            updatedCityCode = data.getStringExtra("citycode");
+            Log.d("myWeather","选择的城市代码为"+updatedCityCode);
             if (NetUtil.getNetWorkState(this)!=NetUtil.NETWORK_NONE){
                 Log.d("mywather","网络OK");
-                queryWeatherCode(newCityCode);
+                SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+                String cityCode = sharedPreferences.getString("main_city_code", "101010100");
+                queryWeatherCode(updatedCityCode);
             }
             else {
                 Log.d("myWeather","无网络");
