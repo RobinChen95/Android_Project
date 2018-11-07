@@ -83,7 +83,7 @@ public class Myadapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null){
             convertView = mInflater.inflate(R.layout.item_layout, parent, false);
             holder = new ViewHolder();
@@ -94,27 +94,10 @@ public class Myadapter extends BaseAdapter {
         }
 
         City city = mDatas.get(position);
-        int firstPosition = getNmaeForPosition(position);
-        int index = getPositionForNmae(firstPosition);
         holder.cityTv.setText(city.getCity());
 
         return convertView;
     }
 
-    public int getPositionForNmae(int position) {
-        for (int i = 0; i < getCount(); i++) {
-            String letter = mDatas.get(i).getAllFirstPY();
-            //首字母显示
-            char firstChar = letter.toUpperCase().charAt(0);
-            if (firstChar == position) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public int getNmaeForPosition(int position) {
-        return mDatas.get(position).getAllFirstPY().charAt(0);
-    }
 
 }
