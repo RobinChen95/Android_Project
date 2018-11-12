@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 import com.pku.edu.ChenGuoqiang.bean.TodayWeather;
 import com.pku.edu.ChenGuoqiang.util.NetUtil;
 import com.pku.edu.ChenGuoqiang.app.MyApplication;
+import com.pku.edu.ChenGuoqiang.util.pageAdapter;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -30,13 +33,14 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final int UPDATE_TODAY_WEATHER = 1;
 
     private ImageView mUpdateBtn;
-
 
     private ImageView mcitySelect;
 
@@ -48,6 +52,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private SwipeRefreshLayout Refresh;
 
     private String updatedCityCode;
+
+    private ViewPager viewPager;
+    private List<View> views;
+    private pageAdapter pageadapter;
 
 
     @SuppressLint("HandlerLeak")
@@ -311,7 +319,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mcitySelect.setOnClickListener(this);
 
         initView();
+
         PulltoRefresh();
+
+        viewPager = (ViewPager)findViewById(R.id.pages);
+
+        views = new ArrayList<>();
+        views.add(LayoutInflater.from(this).inflate(R.layout.page1,null));
+        views.add(LayoutInflater.from(this).inflate(R.layout.page2,null));
+
+        pageadapter = new pageAdapter(this,views);
+
+        viewPager.setAdapter(pageadapter);
+
     }
 
     @Override
