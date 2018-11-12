@@ -10,13 +10,14 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pku.edu.ChenGuoqiang.app.MyApplication;
 import com.pku.edu.ChenGuoqiang.bean.City;
 import com.pku.edu.ChenGuoqiang.util.ClearEditText;
+import com.pku.edu.ChenGuoqiang.util.MyExpandableListView;
 import com.pku.edu.ChenGuoqiang.util.Myadapter;
 
 import java.util.ArrayList;
@@ -25,12 +26,12 @@ import java.util.List;
 public class SelectCity extends Activity implements View.OnClickListener {
 
     private ImageView mBackBtn;
-    private ListView mList;
+    private ExpandableListView mList;
     private List<City> cityList;
     private ArrayList<City> filtedDataList;
     private String citycode;
     private TextView select_city_Tv;
-    private Myadapter myadapter;
+    private MyExpandableListView myadapter;
     private ClearEditText mClearEditText;
 
 
@@ -48,12 +49,12 @@ public class SelectCity extends Activity implements View.OnClickListener {
     }
 
     private void initViews() {
-        mList = (ListView) findViewById(R.id.city_list);
+        mList = (ExpandableListView) findViewById(R.id.expandableListView);
         MyApplication myApplication = (MyApplication) getApplication();
         cityList = myApplication.getmCityList();
         filtedDataList = new ArrayList<>(cityList);
         mClearEditText = (ClearEditText) findViewById(R.id.search_bar);
-        myadapter = new Myadapter(SelectCity.this,cityList);
+        myadapter = new MyExpandableListView(SelectCity.this,cityList);
         mList.setAdapter(myadapter);
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

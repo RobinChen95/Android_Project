@@ -65,13 +65,12 @@
         android:layout_height="match_parent"
         android:layout_below="@id/title_mid">
 
-        <ListView
-            android:id="@+id/city_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+        <ExpandableListView
+            android:id="@+id/expandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        </ListView>
+        </ExpandableListView>
     </RelativeLayout>
 
 
