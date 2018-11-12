@@ -1,2 +1,3 @@
 1、在安装Windows系统的AS的时候，要先安装SDK Manager，再打开setting，用SDK Manager安装很多必须的包，此时AS不会提示使用SDK Manager
 2、在windows电脑上面装时，可能不能用github直接同步全部文件，有时可能会报错
+3、Github discard change会直接将文件返回原来的状态而不是直接忽略改变
