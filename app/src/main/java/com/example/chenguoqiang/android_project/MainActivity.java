@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv;
 
+
     private ImageView weatherImg, pmImg;
 
     private SwipeRefreshLayout Refresh;
@@ -232,6 +233,86 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                 eventType = xmlPullParser.next();
                                 todayWeather.setType(xmlPullParser.getText());
                                 typeCount++;
+                            } else if (xmlPullParser.getName().equals("date") && dateCount == 1) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow1_date(xmlPullParser.getText());
+                                dateCount++;
+                            } else if (xmlPullParser.getName().equals("high") && highCount == 1) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow1_high(xmlPullParser.getText());
+                                highCount++;
+                            } else if (xmlPullParser.getName().equals("low") && lowCount == 1) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow1_low(xmlPullParser.getText());
+                                lowCount++;
+                            } else if (xmlPullParser.getName().equals("type") && typeCount == 1) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow1_type(xmlPullParser.getText());
+                                typeCount++;
+                            }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 1) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow1_fengxiang(xmlPullParser.getText());
+                                fengxiangCount++;
+                            } else if (xmlPullParser.getName().equals("date") && dateCount == 2) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow2_date(xmlPullParser.getText());
+                                dateCount++;
+                            } else if (xmlPullParser.getName().equals("high") && highCount == 2) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow2_high(xmlPullParser.getText());
+                                highCount++;
+                            } else if (xmlPullParser.getName().equals("low") && lowCount == 2) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow2_low(xmlPullParser.getText());
+                                lowCount++;
+                            } else if (xmlPullParser.getName().equals("type") && typeCount == 2) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow2_type(xmlPullParser.getText());
+                                typeCount++;
+                            }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 2) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow2_fengxiang(xmlPullParser.getText());
+                                fengxiangCount++;
+                            } else if (xmlPullParser.getName().equals("date") && dateCount == 3) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow3_date(xmlPullParser.getText());
+                                dateCount++;
+                            } else if (xmlPullParser.getName().equals("high") && highCount == 3) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow3_high(xmlPullParser.getText());
+                                highCount++;
+                            } else if (xmlPullParser.getName().equals("low") && lowCount == 3) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow3_low(xmlPullParser.getText());
+                                lowCount++;
+                            } else if (xmlPullParser.getName().equals("type") && typeCount == 3) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow3_type(xmlPullParser.getText());
+                                typeCount++;
+                            }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 3) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow3_fengxiang(xmlPullParser.getText());
+                                fengxiangCount++;
+                            } else if (xmlPullParser.getName().equals("date") && dateCount == 4) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow4_date(xmlPullParser.getText());
+                                dateCount++;
+                            } else if (xmlPullParser.getName().equals("high") && highCount == 4) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow4_high(xmlPullParser.getText());
+                                highCount++;
+                            } else if (xmlPullParser.getName().equals("low") && lowCount == 4) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow4_low(xmlPullParser.getText());
+                                lowCount++;
+                            } else if (xmlPullParser.getName().equals("type") && typeCount == 4) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow4_type(xmlPullParser.getText());
+                                typeCount++;
+                            }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 4) {
+                                eventType = xmlPullParser.next();
+                                todayWeather.setTomorrow4_fengxiang(xmlPullParser.getText());
+                                fengxiangCount++;
                             }
                         }
 
