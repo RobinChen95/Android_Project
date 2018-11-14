@@ -47,8 +47,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv,
             temperatureTv, climateTv, windTv, city_name_Tv;
 
+    private TextView date1,temperature1,fengxiang1,climate1,
+            date2,temperature2,fengxiang2,climate2,
+            date3,temperature3,fengxiang3,climate3,
+            date4,temperature4,fengxiang4,climate4;
 
     private ImageView weatherImg, pmImg;
+
+
+    private ImageView weatherImg1,weatherImg12,weatherImg3,weatherImg4;
 
     private SwipeRefreshLayout Refresh;
 
@@ -87,6 +94,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         climateTv = (TextView) findViewById(R.id.climate);
         windTv = (TextView) findViewById(R.id.wind);
         weatherImg = (ImageView) findViewById(R.id.weather_img);
+
+        date1 = findViewById(R.id.date);
+        //date1.setText("N/A");
 
         city_name_Tv.setText("N/A");
         cityTv.setText("N/A");

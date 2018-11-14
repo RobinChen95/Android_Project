@@ -6,13 +6,18 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import java.util.List;
 
 public class pageAdapter extends PagerAdapter {
     private Context context;
     private List<View> list;
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 
-    public pageAdapter(Context context,List<View> list){
+    public pageAdapter(Context context, List<View> list){
         this.context = context;
         this.list=list;
     }
