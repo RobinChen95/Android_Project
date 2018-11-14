@@ -269,12 +269,6 @@
                     android:orientation="vertical"
                     android:padding="5dp">
 
-                    <LinearLayout
-                        android:id="@+id/ll_point"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"></LinearLayout>
                 </LinearLayout>
             </RelativeLayout>
             <!-- 六日天气信息 -->

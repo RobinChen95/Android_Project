@@ -295,6 +295,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (todayWeather.getTomorrow4_type().equals("阵雨"))weatherImg4.setImageResource(R.drawable.biz_plugin_weather_zhenyu);
         if (todayWeather.getTomorrow4_type().equals("中雪"))weatherImg4.setImageResource(R.drawable.biz_plugin_weather_zhongxue);
         if (todayWeather.getTomorrow4_type().equals("中雨"))weatherImg4.setImageResource(R.drawable.biz_plugin_weather_zhongyu);
+
+
         //********************更新ViewPager图片********************
 
         //使用setImageResource方法更新Pm2.5图片与天气图片
