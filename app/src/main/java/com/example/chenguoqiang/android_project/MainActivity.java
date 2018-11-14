@@ -36,7 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener,ViewPager.OnPageChangeListener {
 
     private static final int UPDATE_TODAY_WEATHER = 1;
 
@@ -54,8 +54,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private ImageView weatherImg, pmImg;
 
-
     private ImageView weatherImg1,weatherImg2,weatherImg3,weatherImg4;
+
+    private ImageView page1Img,page2Img;
 
     private SwipeRefreshLayout Refresh;
 
@@ -143,6 +144,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         views.add(page2);
         pageadapter = new pageAdapter(this,views);
         viewPager.setAdapter(pageadapter);
+        page1Img = findViewById(R.id.page1Img);
+        page2Img = findViewById(R.id.page2Img);
+        viewPager.setOnPageChangeListener(this);
         //------------------设置ViewPager页面------------------
 
         city_name_Tv.setText("N/A");
@@ -602,5 +606,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(this, "无网络", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void onPageScrolled(int i, float v, int i1) {
+
+    }
+
+    @Override
+    public void onPageSelected(int i) {
+        if (i==0){
+            page1Img.setImageResource(R.drawable.point_disable);
+            page2Img.setImageResource(R.drawable.point_enable);
+        }else {
+            page2Img.setImageResource(R.drawable.point_disable);
+            page1Img.setImageResource(R.drawable.point_enable);
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
+
     }
 }

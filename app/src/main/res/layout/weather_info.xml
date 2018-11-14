@@ -261,15 +261,26 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginBottom="40dip" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:padding="5dp">
-
-                </LinearLayout>
+                    <ImageView
+                        android:layout_width="10dip"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/page1Img"
+                        android:src="@drawable/point_enable"/>
+                    <ImageView
+                        android:layout_width="10dip"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/page1Img"
+                        android:layout_marginLeft="5dip"
+                        android:id="@+id/page2Img"
+                        android:src="@drawable/point_disable"/>
+                </RelativeLayout>
             </RelativeLayout>
             <!-- 六日天气信息 -->
             <!-- 广告等信息 -->
