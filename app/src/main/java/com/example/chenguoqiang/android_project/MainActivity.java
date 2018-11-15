@@ -167,13 +167,20 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
         new Thread(new Runnable() {
             @Override
             public void run() {
+                //根据ID找到控件
                 Refresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
+                //设置颜色
                 Refresh.setColorSchemeColors(R.color.colorPrimaryDark);
+                //创建监听器
                 Refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
+                        //查询之前展示动画
+                        Refresh.setRefreshing(true);
                         queryWeatherCode(updatedCityCode);
+                        //查询之后关闭动画
                         Refresh.setRefreshing(false);
+
                     }
                 });
             }
@@ -404,7 +411,10 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
                                 eventType = xmlPullParser.next();
                                 todayWeather.setType(xmlPullParser.getText());
                                 typeCount++;
-                            } else if (xmlPullParser.getName().equals("date") && dateCount == 1) {
+                            }
+
+                            //--------------------以下为更新解析第1-4天天气的代码--------------------
+                            else if (xmlPullParser.getName().equals("date") && dateCount == 1) {
                                 eventType = xmlPullParser.next();
                                 todayWeather.setTomorrow1_date(xmlPullParser.getText());
                                 dateCount++;
@@ -485,6 +495,7 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
                                 todayWeather.setTomorrow4_fengxiang(xmlPullParser.getText());
                                 fengxiangCount++;
                             }
+                            //--------------------以上为更新解析第1-4天天气的代码--------------------
                         }
 
                         break;
@@ -616,11 +627,13 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
     @Override
     public void onPageSelected(int i) {
         if (i==0){
+            //如果是第一页，设置第一个小圆点为红，第二个为灰色
+            page1Img.setImageResource(R.drawable.point_enable);
+            page2Img.setImageResource(R.drawable.point_disable);
+        }else {
+            //如果是第二页，设置第一个小圆点为灰，第二个为红色
             page1Img.setImageResource(R.drawable.point_disable);
             page2Img.setImageResource(R.drawable.point_enable);
-        }else {
-            page2Img.setImageResource(R.drawable.point_disable);
-            page1Img.setImageResource(R.drawable.point_enable);
         }
     }
 

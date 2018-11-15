@@ -10,13 +10,17 @@ import android.view.ViewGroup;
 import java.util.List;
 
 public class pageAdapter extends PagerAdapter {
+
     private Context context;
     private List<View> list;
+
+    //实现内容的更新
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
     }
 
+    //构造函数
     public pageAdapter(Context context, List<View> list){
         this.context = context;
         this.list=list;

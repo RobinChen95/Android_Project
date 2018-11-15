@@ -249,7 +249,7 @@
 
             </RelativeLayout>
 
-            <!-- 六日天气信息 -->
+            <!-- 六日天气信息 开始-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -282,7 +282,8 @@
                         android:src="@drawable/point_disable"/>
                 </RelativeLayout>
             </RelativeLayout>
-            <!-- 六日天气信息 -->
+            <!-- 六日天气信息 结束-->
+
             <!-- 广告等信息 -->
 
         </LinearLayout>

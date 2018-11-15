@@ -35,6 +35,13 @@ public class TodayWeather {
     private String tomorrow3_type;
     private String tomorrow3_fengxiang;
 
+    //未来第4天的天气
+    private String tomorrow4_date;
+    private String tomorrow4_high;
+    private String tomorrow4_low;
+    private String tomorrow4_type;
+    private String tomorrow4_fengxiang;
+
     public void setTomorrow1_date(String tomorrow1_date) {
         this.tomorrow1_date = tomorrow1_date;
     }
@@ -114,7 +121,6 @@ public class TodayWeather {
     public void setTomorrow4_fengxiang(String tomorrow4_fengxiang) {
         this.tomorrow4_fengxiang = tomorrow4_fengxiang;
     }
-//未来第4天的天气
 
     public String getTomorrow1_date() {
         return tomorrow1_date;
@@ -196,11 +202,6 @@ public class TodayWeather {
         return tomorrow4_fengxiang;
     }
 
-    private String tomorrow4_date;
-    private String tomorrow4_high;
-    private String tomorrow4_low;
-    private String tomorrow4_type;
-    private String tomorrow4_fengxiang;
 
 
     @Override
