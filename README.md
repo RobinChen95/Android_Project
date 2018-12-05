@@ -18,25 +18,25 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio</
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="340" height="571">
 </p>
  
-<h1>&nbsp&nbsp选择界面</h1>
+<h1>&nbsp&nbsp能够折叠并且带有图片的选择界面：</h1>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面.png" width="340" height="571">
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面2.png" width="340" height="571">
 </p>
  
-<h1>&nbsp&nbsp根据用户选择的城市所在的省份变换背景</h1>
+<h1>&nbsp&nbsp根据用户选择的城市所在的省份变换背景：</h1>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="340" height="571">
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="340" height="571">
  <p>
  
-<h1>&nbsp&nbsp能够实时结果的搜索界面</h1>
+<h1>&nbsp&nbsp能够实时显示搜索结果的搜索界面：</h1>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果1.png" width="340" height="571">
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果2.png" width="340" height="571">
 <p>
  
-<h1>&nbsp&nbsp搜索结果</h1>
+<h1>&nbsp&nbsp点击最后的搜索结果搜索结果：</h1>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果.png" width="340" height="571">
 
   
