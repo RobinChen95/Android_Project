@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +60,8 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
 
     private ImageView page1Img,page2Img;
 
+    private LinearLayout backgroundImg;
+
     private SwipeRefreshLayout Refresh;
 
     private String updatedCityCode;
@@ -95,7 +99,7 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
         climateTv = (TextView) findViewById(R.id.climate);
         windTv = (TextView) findViewById(R.id.wind);
         weatherImg = (ImageView) findViewById(R.id.weather_img);
-
+        backgroundImg = (LinearLayout) findViewById(R.id.backgroundImg);
         //------------------设置ViewPager页面------------------
         viewPager = (ViewPager)findViewById(R.id.pages);
         View page1 = LayoutInflater.from(this).inflate(R.layout.page1,null);
@@ -201,6 +205,117 @@ public class MainActivity extends Activity implements View.OnClickListener,ViewP
         temperatureTv.setText(todayWeather.getHigh() + "~" + todayWeather.getLow());
         climateTv.setText(todayWeather.getType());
         windTv.setText("风力:" + todayWeather.getFengli());
+
+        //--------------------更新背景图片--------------------
+        if (MyApplication.province_global!=null){
+            switch (MyApplication.province_global){
+                case "北京":
+                    backgroundImg.setBackgroundResource(R.drawable.bj);
+                    break;
+                case "上海":
+                    backgroundImg.setBackgroundResource(R.drawable.sh);
+                    break;
+                case "天津":
+                    backgroundImg.setBackgroundResource(R.drawable.tj);
+                    break;
+                case "重庆":
+                    backgroundImg.setBackgroundResource(R.drawable.cq);
+                    break;
+                case "黑龙江":
+                    backgroundImg.setBackgroundResource(R.drawable.hlj);
+                    break;
+                case "吉林":
+                    backgroundImg.setBackgroundResource(R.drawable.jl);
+                    break;
+                case "辽宁":
+                    backgroundImg.setBackgroundResource(R.drawable.ln);
+                    break;
+                case "内蒙古":
+                    backgroundImg.setBackgroundResource(R.drawable.nmg);
+                    break;
+                case "河北":
+                    backgroundImg.setBackgroundResource(R.drawable.hebei);
+                    break;
+                case "山西":
+                    backgroundImg.setBackgroundResource(R.drawable.shanxi);
+                    break;
+                case "陕西":
+                    backgroundImg.setBackgroundResource(R.drawable.shaanxi);
+                    break;
+                case "山东":
+                    backgroundImg.setBackgroundResource(R.drawable.sd);
+                    break;
+                case "新疆":
+                    backgroundImg.setBackgroundResource(R.drawable.xj);
+                    break;
+                case "西藏":
+                    backgroundImg.setBackgroundResource(R.drawable.xz);
+                    break;
+                case "青海":
+                    backgroundImg.setBackgroundResource(R.drawable.qh);
+                    break;
+                case "甘肃":
+                    backgroundImg.setBackgroundResource(R.drawable.gs);
+                    break;
+                case "宁夏":
+                    backgroundImg.setBackgroundResource(R.drawable.nx);
+                    break;
+                case "河南":
+                    backgroundImg.setBackgroundResource(R.drawable.henan);
+                    break;
+                case "江苏":
+                    backgroundImg.setBackgroundResource(R.drawable.js);
+                    break;
+                case "湖北":
+                    backgroundImg.setBackgroundResource(R.drawable.hubei);
+                    break;
+                case "浙江":
+                    backgroundImg.setBackgroundResource(R.drawable.zj);
+                    break;
+                case "安徽":
+                    backgroundImg.setBackgroundResource(R.drawable.ah);
+                    break;
+                case "福建":
+                    backgroundImg.setBackgroundResource(R.drawable.fj);
+                    break;
+                case "江西":
+                    backgroundImg.setBackgroundResource(R.drawable.jx);
+                    break;
+                case "湖南":
+                    backgroundImg.setBackgroundResource(R.drawable.hunan);
+                    break;
+                case "贵州":
+                    backgroundImg.setBackgroundResource(R.drawable.gz);
+                    break;
+                case "四川":
+                    backgroundImg.setBackgroundResource(R.drawable.sc);
+                    break;
+                case "广东":
+                    backgroundImg.setBackgroundResource(R.drawable.biz_plugin_weather_shenzhen_bg);
+                    break;
+                case "云南":
+                    backgroundImg.setBackgroundResource(R.drawable.yn);
+                    break;
+                case "广西":
+                    backgroundImg.setBackgroundResource(R.drawable.gx);
+                    break;
+                case "海南":
+                    backgroundImg.setBackgroundResource(R.drawable.hainan);
+                    break;
+                case "香港":
+                    backgroundImg.setBackgroundResource(R.drawable.xg);
+                    break;
+                case "澳门":
+                    backgroundImg.setBackgroundResource(R.drawable.am);
+                    break;
+                case "台湾":
+                    backgroundImg.setBackgroundResource(R.drawable.tw);
+                    break;
+                default:
+                    break;
+            }
+        }
+        //--------------------更新背景图片--------------------
 
         //--------------------更新ViewPager--------------------
         date1.setText(todayWeather.getTomorrow1_date());

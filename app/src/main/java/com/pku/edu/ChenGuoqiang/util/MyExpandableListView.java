@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chenguoqiang.android_project.R;
+import com.pku.edu.ChenGuoqiang.app.MyApplication;
 import com.pku.edu.ChenGuoqiang.bean.City;
 
 import java.util.ArrayList;
@@ -193,6 +194,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
         ImageView imgGroup = (ImageView) convertView.findViewById(R.id.province_icon);
         // 设置分组组名
         tvGroup.setText(provinces_result.get(groupPosition));
+        MyApplication.province_global = provinces_result.get(groupPosition);
         // 设置图片
         switch (provinces_result.get(groupPosition)){
             case "北京":

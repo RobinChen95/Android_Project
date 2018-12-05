@@ -18,6 +18,8 @@ public class MyApplication extends Application {
 
     public static String cityname_global;
 
+    public static String province_global = null;
+
     private static final String TAG = "Myapp";
 
     private static MyApplication mApplication;
