@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chenguoqiang.android_project.R;
@@ -189,8 +190,116 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
             convertView = mInflater.inflate(R.layout.item_first,parent,false);
         }
         TextView tvGroup = (TextView) convertView.findViewById(R.id.first_group);
+        ImageView imgGroup = (ImageView) convertView.findViewById(R.id.province_icon);
         // 设置分组组名
         tvGroup.setText(provinces_result.get(groupPosition));
+        // 设置图片
+        switch (provinces_result.get(groupPosition)){
+            case "北京":
+                imgGroup.setImageResource(R.drawable.bj);
+                break;
+            case "上海":
+                imgGroup.setImageResource(R.drawable.sh);
+                break;
+            case "天津":
+                imgGroup.setImageResource(R.drawable.tj);
+                break;
+            case "重庆":
+                imgGroup.setImageResource(R.drawable.cq);
+                break;
+            case "黑龙江":
+                imgGroup.setImageResource(R.drawable.hlj);
+                break;
+            case "吉林":
+                imgGroup.setImageResource(R.drawable.jl);
+                break;
+            case "辽宁":
+                imgGroup.setImageResource(R.drawable.ln);
+                break;
+            case "内蒙古":
+                imgGroup.setImageResource(R.drawable.nmg);
+                break;
+            case "河北":
+                imgGroup.setImageResource(R.drawable.hebei);
+                break;
+            case "山西":
+                imgGroup.setImageResource(R.drawable.shanxi);
+                break;
+            case "陕西":
+                imgGroup.setImageResource(R.drawable.shaanxi);
+                break;
+            case "山东":
+                imgGroup.setImageResource(R.drawable.sd);
+                break;
+            case "新疆":
+                imgGroup.setImageResource(R.drawable.xj);
+                break;
+            case "西藏":
+                imgGroup.setImageResource(R.drawable.xz);
+                break;
+            case "青海":
+                imgGroup.setImageResource(R.drawable.qh);
+                break;
+            case "甘肃":
+                imgGroup.setImageResource(R.drawable.gs);
+                break;
+            case "宁夏":
+                imgGroup.setImageResource(R.drawable.nx);
+                break;
+            case "河南":
+                imgGroup.setImageResource(R.drawable.henan);
+                break;
+            case "江苏":
+                imgGroup.setImageResource(R.drawable.js);
+                break;
+            case "湖北":
+                imgGroup.setImageResource(R.drawable.hubei);
+                break;
+            case "浙江":
+                imgGroup.setImageResource(R.drawable.zj);
+                break;
+            case "安徽":
+                imgGroup.setImageResource(R.drawable.ah);
+                break;
+            case "福建":
+                imgGroup.setImageResource(R.drawable.fj);
+                break;
+            case "江西":
+                imgGroup.setImageResource(R.drawable.jx);
+                break;
+            case "湖南":
+                imgGroup.setImageResource(R.drawable.hunan);
+                break;
+            case "贵州":
+                imgGroup.setImageResource(R.drawable.gz);
+                break;
+            case "四川":
+                imgGroup.setImageResource(R.drawable.sc);
+                break;
+            case "广东":
+                imgGroup.setImageResource(R.drawable.gd);
+                break;
+            case "云南":
+                imgGroup.setImageResource(R.drawable.yn);
+                break;
+            case "广西":
+                imgGroup.setImageResource(R.drawable.gx);
+                break;
+            case "海南":
+                imgGroup.setImageResource(R.drawable.hainan);
+                break;
+            case "香港":
+                imgGroup.setImageResource(R.drawable.xg);
+                break;
+            case "澳门":
+                imgGroup.setImageResource(R.drawable.am);
+                break;
+            case "台湾":
+                imgGroup.setImageResource(R.drawable.tw);
+                break;
+                default:
+                    break;
+        }
         return convertView;
     }
 
