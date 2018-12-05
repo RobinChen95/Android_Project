@@ -12,31 +12,31 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio</
 7、自定了34个省份的选择界面及其相关的更改背景函数</br>
 8、有可能自定义了其他东西，但是写到最后忘了加在哪里了</br>
 
-<h1>主界面与下拉刷新</h1>
+<h1>&nbsp&nbsp主界面与下拉刷新：</h1>
 <p>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png" width="500" height="1000">
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="500" height="1000">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png" width="340" height="571">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="340" height="571">
 </p>
  
-<h1>选择界面</h1>
+<h1>&nbsp&nbsp选择界面</h1>
 <p>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面.png" width="500" height="1000">
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面2.png" width="500" height="1000">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面.png" width="340" height="571">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面2.png" width="340" height="571">
 </p>
  
-<h1>根据用户选择的城市所在的省份变换背景</h1>
+<h1>&nbsp&nbsp根据用户选择的城市所在的省份变换背景</h1>
 <p>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="500" height="1000">
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="500" height="1000">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="340" height="571">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="340" height="571">
  <p>
  
-<h1>能够实时结果的搜索界面</h1>
+<h1>&nbsp&nbsp能够实时结果的搜索界面</h1>
 <p>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果1.png" width="500" height="1000">
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果2.png" width="500" height="1000">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果1.png" width="340" height="571">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果2.png" width="340" height="571">
 <p>
  
-<h1>搜索结果</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果.png" width="500" height="1000">
+<h1>&nbsp&nbsp搜索结果</h1>
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果.png" width="340" height="571">
 
   
