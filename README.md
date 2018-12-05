@@ -1,4 +1,4 @@
-# Android_Project
+# 安卓天气软件 By RobinChen95@PKUSE
 Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio</br>
 安卓版本的天气软件，同时在一台windows电脑与Mac电脑上部署了开发环境，最终版本完成时间：2018/12/05</br></br>
 实现的功能：天气展示、下拉刷新、未来天气、省份聚合、城市搜索、背景变换</br></br>
