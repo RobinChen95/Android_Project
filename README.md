@@ -27,28 +27,28 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio
 <h1>主界面与下拉刷新</h1>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png" width="400" height="711">
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="300" height="711">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="400" height="711">
 </p>
  
-<h1>选择界面1</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面.png" width="300" height="533">
+<h1>选择界面</h1>
+<p>
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面.png" width="400" height="711">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面2.png" width="400" height="711">
+</p>
  
-<h1>选择界面2</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/选择界面2.png" width="300" height="533">
+<h1>变换背景</h1>
+<p>
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="400" height="711">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="400" height="711">
+ <p>
  
-<h1>变换背景1</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="300" height="533">
- 
-<h1>变换背景2</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="300" height="533">
- 
-<h1>搜索界面1</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索界面1.png" width="300" height="533">
- 
-<h1>搜索界面2</h1>
- <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索界面2.png" width="300" height="533">
+<h1>搜索界面</h1>
+<p>
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果1.png" width="400" height="711">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果2.png" width="400" height="711">
+<p>
  
 <h1>搜索结果</h1>
-<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果.png" width="300" height="533">
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/搜索结果.png" width="400" height="711">
 
   
