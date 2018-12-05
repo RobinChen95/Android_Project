@@ -8,11 +8,17 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio.
 
 额外自定义了：
 1、ExpandableListView二级列表控件及其Adapter
+
 2、pageView分页展示控件及其Adapter
+
 3、下方圆点的展示及其制作相关函数
+
 4、SwipeRefreshLayout下拉刷新控件及多线程
+
 5、ClearEditText类以及搜索后的数据过滤方法
+
 6、重写了parseXML()解析函数
+
 7、有可能自定义了其他东西，但是写到最后忘了加在哪里了
 
 主界面1：
