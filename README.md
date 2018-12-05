@@ -13,7 +13,7 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio</
 8、有可能自定义了其他东西，但是写到代码过于复杂最后忘了加在哪里了</br>
 
 <h1>&nbsp&nbsp主界面与下拉刷新：</h1>
-<h4>&nbsp&nbsp实现了天气展示、主界面下拉刷新、ViewPager的未来天气以及下方小圆点指示</h4>
+<h4>&nbsp&nbsp主界面主要有：天气展示、主界面下拉刷新、ViewPager的未来天气以及下方小圆点指示</h4>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png" width="340" height="571">
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png" width="340" height="571">
@@ -28,7 +28,7 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio</
 </p>
  
 <h1>&nbsp&nbsp根据用户选择的城市所在的省份变换背景：</h1>
-<h4>&nbsp&nbsp利用了安卓Application生命周期长的特点设置了全局参数保存citycode以及cityname，此处没有用Intent</h4>
+<h4>&nbsp&nbsp利用了安卓Application生命周期长的特点设置了全局参数保存citycode以及province，此处没有用Intent</h4>
 <p>
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景1.png" width="340" height="571">
 <img src="https://github.com/RobinChen95/Android_Project/blob/master/result/变换背景2.png" width="340" height="571">
