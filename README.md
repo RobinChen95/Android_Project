@@ -25,7 +25,7 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio
 8、有可能自定义了其他东西，但是写到最后忘了加在哪里了
 
 主界面：
- ![image](https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png)
+<img src="https://github.com/RobinChen95/Android_Project/blob/master/result/主界面.png" width="250" height="140">
  
 下拉刷新：
  ![image](https://github.com/RobinChen95/Android_Project/blob/master/result/下拉刷新.png)
