@@ -7,6 +7,7 @@ Cooperative developed by: Windows10 And MacOS High Sierra using Android Studio.
 实现的功能：天气展示、下拉刷新、未来天气、省份聚合、城市搜索
 
 额外自定义了：
+
 1、ExpandableListView二级列表控件及其Adapter
 
 2、pageView分页展示控件及其Adapter
