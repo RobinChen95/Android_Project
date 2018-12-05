@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dip"
         android:id="@+id/second_group"
-        android:paddingLeft="110dip"
+        android:paddingLeft="115dip"
         android:text="second group"
         android:textSize="20dip"
         />
