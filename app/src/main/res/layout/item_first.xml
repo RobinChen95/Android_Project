@@ -5,16 +5,17 @@
 
     <ImageView
         android:layout_width="30dip"
-        android:layout_height="30dip"
+        android:layout_height="60dip"
         android:id="@+id/province_icon"
         />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="30dip"
+        android:layout_height="60dip"
         android:id="@+id/first_group"
         android:gravity="center"
         android:text="first group"
+        android:textSize="20dip"
         />
 
 

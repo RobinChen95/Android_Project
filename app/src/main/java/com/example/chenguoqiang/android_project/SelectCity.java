@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import com.pku.edu.ChenGuoqiang.app.MyApplication;
 import com.pku.edu.ChenGuoqiang.bean.City;
 import com.pku.edu.ChenGuoqiang.util.ClearEditText;
 import com.pku.edu.ChenGuoqiang.util.MyExpandableListView;
-import com.pku.edu.ChenGuoqiang.util.Myadapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +32,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
     private MyExpandableListView myadapter;
     private ClearEditText mClearEditText;
 
+    private ArrayList<ArrayList<City>> formatedDataList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,14 +55,16 @@ public class SelectCity extends Activity implements View.OnClickListener {
         mClearEditText = (ClearEditText) findViewById(R.id.search_bar);
         myadapter = new MyExpandableListView(SelectCity.this,cityList);
         mList.setAdapter(myadapter);
-        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                citycode = filtedDataList.get(position).getNumber();
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                formatedDataList = myadapter.formatData(filtedDataList);
+                citycode = formatedDataList.get(groupPosition).get(childPosition).getNumber();
                 Intent i = new Intent();
                 i.putExtra("citycode", citycode);
                 setResult(RESULT_OK, i);
                 finish();
+                return true;
             }
         });
 
@@ -87,7 +88,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
 
 
     private void filterData(Editable filterStr) {
-        filtedDataList = new ArrayList<City>();
+        filtedDataList = new ArrayList<>();
         Log.d("Filter", filterStr.toString());
 
         if (TextUtils.isEmpty(filterStr)) {

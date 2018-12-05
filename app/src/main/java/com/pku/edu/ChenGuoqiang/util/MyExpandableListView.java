@@ -6,36 +6,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chenguoqiang.android_project.R;
 import com.pku.edu.ChenGuoqiang.bean.City;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class MyExpandableListView extends BaseExpandableListAdapter {
-    private class ViewHolder{
-        TextView provinceTv;
-        TextView cityTv;
-        ImageView provinceIcon;
-    }
 
     private LayoutInflater mInflater;
     private List<City> mDatas;
+
     //使用哈希映射存储省份,每个省份下又包含各自城市
     private HashMap<Integer,ArrayList<City>> provinces ;
     //使用哈希映射存储省份对应的数字
     private HashMap<String,Integer> province_integer_map;
+    //最终存储的省份列表
+    private ArrayList<String> provinces_result ;
+    //最终存储的城市列表
+    private ArrayList<ArrayList<City>> city_result;
     public MyExpandableListView(Context context, List<City> datas){
         mInflater = LayoutInflater.from(context);
+        formatData(datas);
+    }
+
+    //自定义的格式化数据的函数
+    public  ArrayList<ArrayList<City>> formatData(List<City> datas){
         mDatas = datas;
         provinces = new HashMap<>();
         province_integer_map = new HashMap<>();
+        provinces_result = new ArrayList<>();
+        city_result = new ArrayList<>();
         int provinces_count = 0;
         //将省份与数字建立映射关系
         for (City city: mDatas) {
@@ -46,30 +50,32 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
         }
         for (City city : mDatas){
             if (!provinces.containsKey(province_integer_map.get(city.getProvince()))){
+                //没有该省份时就添加省份的城市列表，可能处理的比较繁琐
                 provinces.put(province_integer_map.get(city.getProvince()),new ArrayList<City>());
-                Log.d("添加了省份：",city.getProvince());
+                provinces_result.add(city.getProvince());
+                ArrayList<City> temp = provinces.get(province_integer_map.get(city.getProvince()));
+                temp.add(city);
+                provinces.remove(province_integer_map.get(city.getProvince()));
+                provinces.put(province_integer_map.get(city.getProvince()),temp);
+                Log.d("添加了省份",city.getProvince()+"\t编号："+province_integer_map.get(city.getProvince()));
             }
             else {
-                //此处可能不能添加
+                //如果有了该城市所在的省份，就在对应的省份列表中添加该城市，可能处理的比较繁琐
                 ArrayList<City> temp = provinces.get(province_integer_map.get(city.getProvince()));
                 temp.add(city);
                 provinces.remove(province_integer_map.get(city.getProvince()));
                 provinces.put(province_integer_map.get(city.getProvince()),temp);
             }
         }
-        //打印
-        for (int i = 0; i < mDatas.size(); i++) {
-            Log.d("原始数据：",mDatas.get(i).getCity());
-        }
+        //将结果添加进结果集
         for (int i = 0; i < provinces.size(); i++) {
-            for (int j = 0; j < provinces.get(i).size(); j++) {
-                Log.d("省份","内容："+provinces.get(i).get(j).getCity());
-            }
+            city_result.add(provinces.get(i));
         }
+        return city_result;
     }
 
     public void updateListView(List<City> datas){
-        mDatas = datas;
+        formatData(datas);
         notifyDataSetChanged();
     }
     /**
@@ -79,7 +85,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      */
     @Override
     public int getGroupCount() {
-        return provinces.size();
+        return provinces_result.size();
     }
 
     /**
@@ -91,7 +97,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      */
     @Override
     public int getChildrenCount(int groupPosition) {
-        return mDatas.size();
+        return city_result.get(groupPosition).size();
     }
 
     /**
@@ -102,7 +108,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      */
     @Override
     public Object getGroup(int groupPosition) {
-        return provinces.get(groupPosition);
+        return provinces_result.get(groupPosition);
     }
 
     /**
@@ -115,7 +121,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return provinces.get(groupPosition).get(childPosition);
+        return city_result.get(groupPosition).get(childPosition);
     }
 
     /**
@@ -153,7 +159,6 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      * underlying data.
      *
      * @return whether or not the same ID always refers to the same object
-     * @see Adapter#hasStableIds()
      */
     @Override
     public boolean hasStableIds() {
@@ -180,20 +185,12 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView==null){
-            holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.item_first, parent, false);
-            holder.provinceTv=(TextView)convertView.findViewById(R.id.first_group);
-            holder.provinceIcon=(ImageView)convertView.findViewById(R.id.province_icon);
-            convertView.setTag(holder);
-        }else {
-            holder = (ViewHolder)convertView.getTag();
+        if (null == convertView) {
+            convertView = mInflater.inflate(R.layout.item_first,parent,false);
         }
-
-        City city = mDatas.get(groupPosition);
-        holder.provinceTv.setText(city.getProvince());
-
+        TextView tvGroup = (TextView) convertView.findViewById(R.id.first_group);
+        // 设置分组组名
+        tvGroup.setText(provinces_result.get(groupPosition));
         return convertView;
     }
 
@@ -216,20 +213,12 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
      * @return the View corresponding to the child at the specified position
      */
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView==null){
-            holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.item_second, parent, false);
-            holder.cityTv=(TextView)convertView.findViewById(R.id.second_group);
-            convertView.setTag(holder);
-        }else {
-            holder = (ViewHolder)convertView.getTag();
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild , View convertView, ViewGroup parent) {
+        if (null == convertView) {
+            convertView = mInflater.inflate(R.layout.item_second,parent,false);
         }
-
-        City city = mDatas.get(groupPosition);
-        holder.cityTv.setText(city.getProvince());
-
+        TextView cityTV = (TextView)convertView.findViewById(R.id.second_group);
+        cityTV.setText(city_result.get(groupPosition).get(childPosition).getCity());
         return convertView;
     }
 
