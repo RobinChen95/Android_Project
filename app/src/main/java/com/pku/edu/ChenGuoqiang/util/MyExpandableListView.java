@@ -192,7 +192,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
         }
         TextView tvGroup = (TextView) convertView.findViewById(R.id.first_group);
         ImageView imgGroup = (ImageView) convertView.findViewById(R.id.province_icon);
-        // 设置分组组名
+        // 设置一级列表的分组组名
         tvGroup.setText(provinces_result.get(groupPosition));
         MyApplication.province_global = provinces_result.get(groupPosition);
         // 设置图片
@@ -329,6 +329,7 @@ public class MyExpandableListView extends BaseExpandableListAdapter {
             convertView = mInflater.inflate(R.layout.item_second,parent,false);
         }
         TextView cityTV = (TextView)convertView.findViewById(R.id.second_group);
+        // 设置二级列表的城市名字
         cityTV.setText(city_result.get(groupPosition).get(childPosition).getCity());
         return convertView;
     }

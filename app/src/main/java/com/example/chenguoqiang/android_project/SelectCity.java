@@ -24,14 +24,18 @@ import java.util.List;
 public class SelectCity extends Activity implements View.OnClickListener {
 
     private ImageView mBackBtn;
+    // 声明ExpandableListView控件
     private ExpandableListView mList;
     private List<City> cityList;
+    // 搜索框过滤之后的数据
     private ArrayList<City> filtedDataList;
     private String citycode;
     private TextView select_city_Tv;
+    // 声明ExpandableListView控件的适配器
     private MyExpandableListView myadapter;
     private ClearEditText mClearEditText;
 
+    // 将存有city的列表整理为按省份存储的二级列表
     private ArrayList<ArrayList<City>> formatedDataList;
 
     @Override
@@ -43,7 +47,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
         initViews();
-        //设置标题栏的城市
+        //设置标题栏的城市，此处是MyApplication类的静态变量
         select_city_Tv.setText("当前城市：" + MyApplication.cityname_global);
     }
 
@@ -55,6 +59,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
         mClearEditText = (ClearEditText) findViewById(R.id.search_bar);
         myadapter = new MyExpandableListView(SelectCity.this,cityList);
         mList.setAdapter(myadapter);
+        // 对二级列表设置点击子类对象Child_Click的监听器
         mList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
@@ -88,6 +93,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
 
 
     private void filterData(Editable filterStr) {
+        // 搜索之后过滤数据
         filtedDataList = new ArrayList<>();
         Log.d("Filter", filterStr.toString());
 
